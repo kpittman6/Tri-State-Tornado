@@ -22,12 +22,20 @@
         .active {
             display: block;
         }
+        #image-range {
+            width: 600px;
+            margin: 10px auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
 <h1 style="text-align: center;">Image Slider - mem005</h1>
 <div id="slider"></div>
+
+<!-- Slider control to manually select images -->
+<input type="range" id="image-range" min="0" value="0">
 
 <script>
     async function loadImages() {
@@ -38,32 +46,37 @@
 
             const files = await response.json();
             const slider = document.getElementById('slider');
+            const rangeInput = document.getElementById('image-range');
+
+            // Set the range input's max value based on the number of images
+            rangeInput.max = files.length - 1;
 
             // Create image elements for each file
             files.forEach((file, index) => {
                 const img = document.createElement('img');
-                img.src = file;  // File names in JSON should be relative paths
+                img.src = file;
                 img.classList.add('slide');
                 if (index === 0) img.classList.add('active');  // Show first image by default
                 slider.appendChild(img);
             });
 
-            // Start the slider after loading images
-            startSlider();
+            // Add event listener to the slider to change the image
+            rangeInput.addEventListener('input', (event) => {
+                const currentIndex = event.target.value;
+                showImage(currentIndex);
+            });
+
+            // Start the image slider
+            showImage(0);
         } catch (error) {
             console.error('Error loading images:', error);
         }
     }
 
-    function startSlider() {
+    function showImage(index) {
         const slides = document.querySelectorAll('.slide');
-        let currentIndex = 0;
-
-        setInterval(() => {
-            slides[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % slides.length;
-            slides[currentIndex].classList.add('active');
-        }, 3000);  // Change slide every 3 seconds
+        slides.forEach(slide => slide.classList.remove('active'));  // Hide all images
+        slides[index].classList.add('active');  // Show the selected image
     }
 
     // Load images when the page is ready
