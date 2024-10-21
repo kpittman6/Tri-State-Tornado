@@ -31,14 +31,16 @@
     <h2>Select an Ensemble Member</h2>
     <ul id="member-list">
         <script>
-            const numMembers = 30;  // Adjust based on the number of members
+            // Define the subdirectories dynamically (replace with an actual list if needed)
+            const members = ['mem005', 'mem006'];
             const memberList = document.getElementById('member-list');
 
-            for (let i = 1; i <= numMembers; i++) {
+            // Generate the list of links based on the subdirectories
+            members.forEach(member => {
                 const li = document.createElement('li');
-                li.innerHTML = `<a href="member_${String(i).padStart(2, '0')}/">Member ${i}</a>`;
+                li.innerHTML = `<a href="${member}/">${member}</a>`;
                 memberList.appendChild(li);
-            }
+            });
         </script>
     </ul>
 </body>
