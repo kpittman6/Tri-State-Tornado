@@ -17,6 +17,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
+            object-fit: contain;
         }
         .active {
             display: block;
@@ -25,27 +26,33 @@
 </head>
 <body>
 
+<h1 style="text-align: center;">Image Slider - mem005</h1>
 <div id="slider"></div>
 
 <script>
-    async function loadImages(directory) {
-        // Fetch the JSON file list for the directory
-        const response = await fetch(`${directory}/file_list.json`);
-        const files = await response.json();
+    async function loadImages() {
+        try {
+            // Fetch the JSON file list (assuming it's in the same directory)
+            const response = await fetch('file_list.json');
+            if (!response.ok) throw new Error('Failed to load file list');
 
-        const slider = document.getElementById('slider');
+            const files = await response.json();
+            const slider = document.getElementById('slider');
 
-        // Create image elements for each file
-        files.forEach((file, index) => {
-            const img = document.createElement('img');
-            img.src = `${directory}/${file}`;
-            img.classList.add('slide');
-            if (index === 0) img.classList.add('active'); // Show first image by default
-            slider.appendChild(img);
-        });
+            // Create image elements for each file
+            files.forEach((file, index) => {
+                const img = document.createElement('img');
+                img.src = file;  // File names in JSON should be relative paths
+                img.classList.add('slide');
+                if (index === 0) img.classList.add('active');  // Show first image by default
+                slider.appendChild(img);
+            });
 
-        // Call the function to start the slider
-        startSlider();
+            // Start the slider after loading images
+            startSlider();
+        } catch (error) {
+            console.error('Error loading images:', error);
+        }
     }
 
     function startSlider() {
@@ -56,11 +63,11 @@
             slides[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + 1) % slides.length;
             slides[currentIndex].classList.add('active');
-        }, 3000); // Change slide every 3 seconds
+        }, 3000);  // Change slide every 3 seconds
     }
 
-    // Load images from the desired directory
-    loadImages('./Future_Simulations/mem005');  // Update with your directory path
+    // Load images when the page is ready
+    loadImages();
 </script>
 
 </body>
