@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Present Day Simulations</title>
+    <style>
+        h1, h2 {
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+        ul li a {
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+        }
+        ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Present Day Simulations</h1>
+    <h2>Select an Ensemble Member</h2>
+    <ul id="member-list">
+        <script>
+            const numMembers = 30;  // Adjust based on the number of members
+            const memberList = document.getElementById('member-list');
+
+            for (let i = 1; i <= numMembers; i++) {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="member_${String(i).padStart(2, '0')}/">Member ${i}</a>`;
+                memberList.appendChild(li);
+            }
+        </script>
+    </ul>
+</body>
+</html>

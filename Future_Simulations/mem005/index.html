@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        #slider {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="slider"></div>
+
+<script>
+    async function loadImages(directory) {
+        // Fetch the JSON file list for the directory
+        const response = await fetch(`${directory}/file_list.json`);
+        const files = await response.json();
+
+        const slider = document.getElementById('slider');
+
+        // Create image elements for each file
+        files.forEach((file, index) => {
+            const img = document.createElement('img');
+            img.src = `${directory}/${file}`;
+            img.classList.add('slide');
+            if (index === 0) img.classList.add('active'); // Show first image by default
+            slider.appendChild(img);
+        });
+
+        // Call the function to start the slider
+        startSlider();
+    }
+
+    function startSlider() {
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+
+        setInterval(() => {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }, 3000); // Change slide every 3 seconds
+    }
+
+    // Load images from the desired directory
+    loadImages('./Future_Simulations/mem005');  // Update with your directory path
+</script>
+
+</body>
+</html>
