@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulated Reflectivity and Tornado Tracks</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #slider-container {
+            width: 90%;  /* Full width for smaller screens */
+            max-width: 1200px;  /* Limit max size on desktop */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;  /* Ensure the image takes full width */
+            height: auto;  /* Maintain aspect ratio */
+            max-height: 80vh;  /* Ensure image isn't too large on tall screens */
+            object-fit: contain;
+        }
+
+        .active {
+            display: block;
+        }
+
+        #image-range {
+            width: 90%;
+            max-width: 1200px;
+            margin: 10px auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            #image-range {
+                width: 100%;  /* Adjust the slider for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Simulated Reflectivity and Tornado Tracks - mem073 SSP585 End 21st Cent</h1>
+
+<div id="slider-container">
+    <div id="slider"></div>
+</div>
+
+<input type="range" id="image-range" min="0" value="0">
+
+<script>
+    async function loadImages() {
+        try {
+            // Fetch the JSON file list (assuming it's in the same directory)
+            const response = await fetch('file_list.json');
+            if (!response.ok) throw new Error('Failed to load file list');
+
+            const files = await response.json();
+            const slider = document.getElementById('slider');
+            const rangeInput = document.getElementById('image-range');
+
+            // Set the range input's max value based on the number of images
+            rangeInput.max = files.length - 1;
+
+            // Create image elements for each file
+            files.forEach((file, index) => {
+                const img = document.createElement('img');
+                img.src = file;
+                img.classList.add('slide');
+                if (index === 0) img.classList.add('active');  // Show first image by default
+                slider.appendChild(img);
+            });
+
+            // Add event listener to the slider to change the image
+            rangeInput.addEventListener('input', (event) => {
+                const currentIndex = event.target.value;
+                showImage(currentIndex);
+            });
+
+            // Start the image slider
+            showImage(0);
+        } catch (error) {
+            console.error('Error loading images:', error);
+        }
+    }
+
+    function showImage(index) {
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach(slide => slide.classList.remove('active'));  // Hide all images
+        slides[index].classList.add('active');  // Show the selected image
+    }
+
+    // Load images when the page is ready
+    loadImages();
+</script>
+
+</body>
+</html>
