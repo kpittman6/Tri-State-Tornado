@@ -3,88 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulations Overview</title>
+  <title>Simulating the 1925 Tri-State Tornado Outbreak</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #f4f4f4;
+      background-color: white;
       margin: 0;
-      padding: 20px;
+      padding: 0;
     }
     h1 {
-      margin-bottom: 20px;
+      margin-top: 50px;
       font-size: 36px;
     }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    h2 {
+      font-size: 24px;
+      margin-top: 0;
     }
-    .card {
-      margin: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      cursor: pointer;
-      overflow: hidden;
+    a {
+      display: block;
+      margin: 20px;
+      font-size: 20px;
+      color: blue;
+      text-decoration: none;
     }
-    .card img {
-      width: 100%;
-      height: auto;
-      border-bottom: 1px solid #ddd;
-    }
-    .card h2 {
-      padding: 10px;
-      font-size: 1.2em;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <h1>Simulations Overview</h1>
-  <div class="container" id="card-container"></div>
+  <h1>Simulating the 1925 Tri-State Tornado Outbreak in a Warmer Climate</h1>
+  <h2>Kyle Pittman, Northern Illinois University</h2>
 
-  <script>
-    const members = [
-      "mem005", "mem006", "mem007", "mem016", "mem017", "mem019", "mem021",
-      "mem025", "mem026", "mem030", "mem034", "mem037", "mem038", "mem042",
-      "mem044", "mem046", "mem047", "mem050", "mem051", "mem052", "mem053",
-      "mem054", "mem058", "mem061", "mem071", "mem072", "mem073", "mem075",
-      "mem076", "mem080"
-    ];
-
-    const suites = ["Historical", "PresentDay", "Future"];
-
-    const container = document.getElementById("card-container");
-
-    // Loop through each suite and member to generate the cards
-    suites.forEach(suite => {
-      members.forEach(member => {
-        const suiteSlug = suite.toLowerCase(); // Convert suite to lowercase for paths
-        const imgPath = `TorTracks/${suite}/${member}.png`; // Thumbnail path
-        const memberPage = `members/${member}_${suiteSlug}.html`; // Link to member page
-
-        // Create the card element
-        const card = document.createElement("div");
-        card.classList.add("card");
-
-        // Populate the card with content
-        card.innerHTML = `
-          <img src="${imgPath}" alt="${member} ${suite} Tornado Tracks">
-          <h2>${member} - ${suite}</h2>
-        `;
-
-        // Add a click event to navigate to the member's page
-        card.onclick = () => window.location.href = memberPage;
-
-        // Append the card to the container
-        container.appendChild(card);
-      });
-    });
-  </script>
+  <a href="historical.html">Historical Simulations</a>
+  <a href="presentday.html">Present Day Simulations</a>
+  <a href="future.html">Future Simulations</a>
 
 </body>
 </html>
