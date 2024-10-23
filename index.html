@@ -3,70 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ensemble Members Visualization</title>
+  <title>Simulating the 1925 Tri-State Tornado Outbreak</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Times New Roman", Times, serif;
+      text-align: center;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: white;
     }
     h1 {
-      text-align: center;
-      margin-top: 20px;
+      margin-top: 50px;
+      font-size: 36px;
+      font-weight: bold;
     }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
+    h2 {
+      font-size: 24px;
+      margin-top: 0;
     }
-    .member {
-      margin: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      text-align: center;
+    a {
+      display: block;
+      margin-top: 10px;
+      font-size: 20px;
+      color: blue;
+      text-decoration: none;
     }
-    .member img {
-      width: 100%;
-      height: auto;
-      border-bottom: 1px solid #ddd;
-    }
-    .member h2 {
-      padding: 10px;
-      font-size: 1.2em;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Ensemble Members Visualization</h1>
-  <div class="container" id="members"></div>
 
-  <script>
-    // Fetch the data.json file
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        const membersDiv = document.getElementById('members');
+  <h1>Simulating the 1925 Tri-State Tornado Outbreak in a Warmer Climate</h1>
+  <h2>Kyle Pittman, Northern Illinois University</h2>
 
-        // Loop through categories and generate HTML
-        data.categories.forEach(category => {
-          category.members.forEach(member => {
-            const memberDiv = document.createElement('div');
-            memberDiv.classList.add('member');
-            memberDiv.innerHTML = `
-              <h2>${category.category} - ${member.id}</h2>
-              <img src="${member.images[0]}" alt="First plot for ${member.id}">
-              <p>Total Images: ${member.images.length}</p>
-            `;
-            membersDiv.appendChild(memberDiv);
-          });
-        });
-      })
-      .catch(error => console.error('Error loading JSON:', error));
-  </script>
+  <a href="#Historical_Simulations">Historical Simulations</a>
+  <a href="#PresentDay_Simulations">Present Day Simulations</a>
+  <a href="#Future_Simulations">Future Simulations</a>
+
 </body>
 </html>
