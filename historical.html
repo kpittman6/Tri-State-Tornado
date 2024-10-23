@@ -14,26 +14,28 @@
     }
     h1 {
       margin-bottom: 20px;
+      font-size: 36px;
     }
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
     }
-    .gif-card {
+    .card {
       margin: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
       background-color: white;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       width: 300px;
+      cursor: pointer;
     }
-    .gif-card img {
+    .card img {
       width: 100%;
       height: auto;
       border-bottom: 1px solid #ddd;
     }
-    .gif-card h2 {
+    .card h2 {
       padding: 10px;
       font-size: 1.2em;
     }
@@ -42,7 +44,7 @@
 <body>
 
   <h1>Historical Simulations</h1>
-  <div class="container" id="gif-container"></div>
+  <div class="container" id="card-container"></div>
 
   <script>
     const members = [
@@ -53,19 +55,21 @@
       "mem076", "mem080"
     ];
 
-    const container = document.getElementById("gif-container");
+    const container = document.getElementById("card-container");
 
-    // Dynamically generate cards for each GIF
     members.forEach(member => {
-      const gifPath = `Historical_Simulations/${member}_hist_animation.gif`;
+      const imgPath = `TorTracks/Historical/${member}.png`;
+      const memberPage = `members/${member}_historical.html`;
 
       const card = document.createElement("div");
-      card.classList.add("gif-card");
+      card.classList.add("card");
 
       card.innerHTML = `
-        <img src="${gifPath}" alt="${member} animation">
-        <h2>${member}</h2>
+        <img src="${imgPath}" alt="${member} Tornado Tracks">
+        <h2>${member} - Historical</h2>
       `;
+
+      card.onclick = () => window.location.href = memberPage;
 
       container.appendChild(card);
     });
