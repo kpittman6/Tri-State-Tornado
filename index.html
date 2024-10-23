@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ensemble Members Visualization</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .member {
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    .member img {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid #ddd;
+    }
+    .member h2 {
+      padding: 10px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ensemble Members Visualization</h1>
+  <div class="container" id="members"></div>
+
+  <script>
+    // Fetch the data.json file
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        const membersDiv = document.getElementById('members');
+
+        // Loop through categories and generate HTML
+        data.categories.forEach(category => {
+          category.members.forEach(member => {
+            const memberDiv = document.createElement('div');
+            memberDiv.classList.add('member');
+            memberDiv.innerHTML = `
+              <h2>${category.category} - ${member.id}</h2>
+              <img src="${member.images[0]}" alt="First plot for ${member.id}">
+              <p>Total Images: ${member.images.length}</p>
+            `;
+            membersDiv.appendChild(memberDiv);
+          });
+        });
+      })
+      .catch(error => console.error('Error loading JSON:', error));
+  </script>
+</body>
+</html>
