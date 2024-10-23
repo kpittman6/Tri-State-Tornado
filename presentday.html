@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Present Day Simulations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .gif-card {
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .gif-card img {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid #ddd;
+    }
+    .gif-card h2 {
+      padding: 10px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Present Day Simulations</h1>
+  <div class="container" id="gif-container"></div>
+
+  <script>
+    const members = [
+      "mem005", "mem006", "mem007", "mem016", "mem017", "mem019", "mem021",
+      "mem025", "mem026", "mem030", "mem034", "mem037", "mem038", "mem042",
+      "mem044", "mem046", "mem047", "mem050", "mem051", "mem052", "mem053",
+      "mem054", "mem058", "mem061", "mem071", "mem072", "mem073", "mem075",
+      "mem076", "mem080"
+    ];
+
+    const container = document.getElementById("gif-container");
+
+    // Dynamically generate cards for each GIF
+    members.forEach(member => {
+      const gifPath = `PresentDay_Simulations/${member}_hist_animation.gif`;
+
+      const card = document.createElement("div");
+      card.classList.add("gif-card");
+
+      card.innerHTML = `
+        <img src="${gifPath}" alt="${member} animation">
+        <h2>${member}</h2>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
