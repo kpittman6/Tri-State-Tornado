@@ -20,15 +20,18 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      max-width: 1000px; /* Set max width to constrain content */
+      margin: 0 auto; /* Center container horizontally */
     }
     .card {
+      flex: 1 1 calc(33.33% - 20px); /* 3 columns */
       margin: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
       background-color: white;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 300px;
       cursor: pointer;
+      max-width: 300px; /* Optional: Constrain individual card width */
     }
     .card img {
       width: 100%;
@@ -38,6 +41,16 @@
     .card h2 {
       padding: 10px;
       font-size: 1.2em;
+    }
+    @media (max-width: 768px) {
+      .card {
+        flex: 1 1 calc(50% - 20px); /* 2 columns for smaller screens */
+      }
+    }
+    @media (max-width: 480px) {
+      .card {
+        flex: 1 1 100%; /* 1 column for very small screens */
+      }
     }
   </style>
 </head>
@@ -58,7 +71,7 @@
     const container = document.getElementById("card-container");
 
     members.forEach(member => {
-      const imgPath = `./TorTracks/Historical/TorTrack_${member}.png`;  // Correct filename format
+      const imgPath = `./TorTracks/Historical/TorTrack_${member}.png`;
       const memberPage = `members/${member}_historical.html`;
 
       const card = document.createElement("div");
