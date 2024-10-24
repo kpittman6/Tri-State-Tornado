@@ -20,8 +20,6 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      max-width: 1000px; /* Set max width to constrain content */
-      margin: 0 auto; /* Center container horizontally */
     }
     .card {
       flex: 1 1 calc(33.33% - 20px); /* 3 columns */
@@ -31,7 +29,7 @@
       background-color: white;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       cursor: pointer;
-      max-width: 300px; /* Optional: Constrain individual card width */
+      max-width: 300px;
     }
     .card img {
       width: 100%;
@@ -42,14 +40,24 @@
       padding: 10px;
       font-size: 1.2em;
     }
+    .back-link {
+      display: block;
+      margin-top: 40px;
+      font-size: 18px;
+      color: blue;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
     @media (max-width: 768px) {
       .card {
-        flex: 1 1 calc(50% - 20px); /* 2 columns for smaller screens */
+        flex: 1 1 calc(50% - 20px); /* 2 columns on smaller screens */
       }
     }
     @media (max-width: 480px) {
       .card {
-        flex: 1 1 100%; /* 1 column for very small screens */
+        flex: 1 1 100%; /* 1 column on very small screens */
       }
     }
   </style>
@@ -58,6 +66,8 @@
 
   <h1>Historical Simulations</h1>
   <div class="container" id="card-container"></div>
+
+  <a href="index.html" class="back-link">Back to Main Directory</a>
 
   <script>
     const members = [
