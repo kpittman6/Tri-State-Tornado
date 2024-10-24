@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>End 21st Century SSP585 Simulations</title>
+  <title>Future Simulations</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -14,35 +14,60 @@
     }
     h1 {
       margin-bottom: 20px;
+      font-size: 36px;
     }
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
     }
-    .gif-card {
+    .card {
+      flex: 1 1 calc(33.33% - 20px); /* 3 columns */
       margin: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
       background-color: white;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 300px;
+      cursor: pointer;
+      max-width: 300px;
     }
-    .gif-card img {
+    .card img {
       width: 100%;
       height: auto;
       border-bottom: 1px solid #ddd;
     }
-    .gif-card h2 {
+    .card h2 {
       padding: 10px;
       font-size: 1.2em;
+    }
+    .back-link {
+      display: block;
+      margin-top: 40px;
+      font-size: 18px;
+      color: blue;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .card {
+        flex: 1 1 calc(50% - 20px); /* 2 columns for smaller screens */
+      }
+    }
+    @media (max-width: 480px) {
+      .card {
+        flex: 1 1 100%; /* 1 column for very small screens */
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>End 21st Century SSP585 Simulations</h1>
-  <div class="container" id="gif-container"></div>
+  <h1>Future Simulations</h1>
+  <div class="container" id="card-container"></div>
+
+  <a href="index.html" class="back-link">Back to Main Directory</a>
 
   <script>
     const members = [
@@ -53,19 +78,21 @@
       "mem076", "mem080"
     ];
 
-    const container = document.getElementById("gif-container");
+    const container = document.getElementById("card-container");
 
-    // Dynamically generate cards for each GIF
     members.forEach(member => {
-      const gifPath = `Future_Simulations/${member}_hist_animation.gif`;
+      const imgPath = `./TorTracks/SSP585EC/TorTrack_SSP585EC_${member}.png`;
+      const memberPage = `members/${member}_future.html`;
 
       const card = document.createElement("div");
-      card.classList.add("gif-card");
+      card.classList.add("card");
 
       card.innerHTML = `
-        <img src="${gifPath}" alt="${member} animation">
-        <h2>${member}</h2>
+        <img src="${imgPath}" alt="${member} Tornado Tracks">
+        <h2>${member} - Future</h2>
       `;
+
+      card.onclick = () => window.location.href = memberPage;
 
       container.appendChild(card);
     });
