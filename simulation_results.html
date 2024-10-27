@@ -50,9 +50,9 @@
 
   <script>
     const epochs = [
-      { name: "Historical", imgPrefix: "TorTrack_" },
-      { name: "Present-Day", imgPrefix: "TorTrack_Contemp_" },
-      { name: "Future", imgPrefix: "TorTrack_SSP585EC_" }
+      { name: "Historical", folder: "Historical", imgPrefix: "TorTrack_" },
+      { name: "Present-Day", folder: "Contemp", imgPrefix: "TorTrack_Contemp_" },
+      { name: "Future", folder: "SSP585EC", imgPrefix: "TorTrack_SSP585EC_" }
     ];
 
     const members = [
@@ -67,8 +67,9 @@
 
     members.forEach(member => {
       epochs.forEach(epoch => {
-        const imgPath = `./TorTracks/${epoch.name.replace('-', '')}/${epoch.imgPrefix}${member}.png`;
-        const memberPage = `./members/${member}_${epoch.name.toLowerCase()}.html`;
+        // Construct the correct paths
+        const imgPath = `./TorTracks/${epoch.folder}/${epoch.imgPrefix}${member}.png`;
+        const memberPage = `./members/${member}_${epoch.name.toLowerCase().replace('-', '')}.html`;
 
         console.log('Image Path:', imgPath);
         console.log('Member Page:', memberPage);
