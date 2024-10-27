@@ -15,17 +15,20 @@
     h1 {
       margin-bottom: 10px;
       font-size: 36px;
+      grid-column: 2 / 3; /* Align title to the second column */
+      justify-self: center;
     }
     .container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 columns */
-      gap: 10px; /* Reduce gap between images */
+      grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+      gap: 2px; /* Reduce the space between cards */
       margin: 0 auto;
-      max-width: 1400px; /* Expand width on desktop */
+      max-width: 1400px;
+      align-items: start; /* Align items at the top */
     }
     .card {
-      width: 100%; /* Take up full grid cell width */
-      max-width: 350px; /* Make images larger */
+      width: 100%;
+      max-width: 350px;
       border: 1px solid #ccc;
       border-radius: 8px;
       background-color: white;
@@ -38,13 +41,13 @@
       border-bottom: 1px solid #ddd;
     }
     .card h2 {
-      margin: 5px 0; /* Reduce white space around labels */
-      padding: 5px;
+      margin: 2px 0; /* Minimal space above and below text */
+      padding: 2px 0; /* Minimal padding around text */
       font-size: 1.1em;
     }
     .back-link {
       display: block;
-      margin-top: 20px;
+      margin-top: 10px;
       font-size: 18px;
       color: blue;
       text-decoration: none;
@@ -54,19 +57,24 @@
     }
     @media (max-width: 768px) {
       .container {
-        grid-template-columns: 1fr; /* Stack on smaller screens */
+        grid-template-columns: 1fr; /* Stack all items vertically */
       }
       .card {
-        max-width: 100%; /* Allow full width on smaller devices */
+        max-width: 100%; /* Allow full width on smaller screens */
+      }
+      h1 {
+        grid-column: 1 / 2; /* Ensure title remains centered */
       }
     }
   </style>
 </head>
 <body>
 
-  <h1>Simulation Results</h1>
+  <div class="container">
+    <h1>Simulation Results</h1> <!-- Title aligned with center column -->
 
-  <div class="container" id="grid-container"></div>
+    <div id="grid-container"></div>
+  </div>
 
   <a href="index.html" class="back-link">Back to Main Directory</a>
 
