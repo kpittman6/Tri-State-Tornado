@@ -10,22 +10,22 @@
       text-align: center;
       background-color: #f4f4f4;
       margin: 0;
-      padding: 20px;
+      padding: 10px;
     }
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       font-size: 36px;
     }
     .container {
       display: grid;
       grid-template-columns: repeat(3, 1fr); /* 3 columns */
-      gap: 5px; /* Reduce the gap between images */
-      margin: 0 auto; /* Center the grid */
-      max-width: 1200px; /* Constrain the total width */
+      gap: 10px; /* Reduce gap between images */
+      margin: 0 auto;
+      max-width: 1400px; /* Expand width on desktop */
     }
     .card {
-      width: 100%; /* Take full width within the grid cell */
-      max-width: 300px; /* Limit the maximum size */
+      width: 100%; /* Take up full grid cell width */
+      max-width: 350px; /* Make images larger */
       border: 1px solid #ccc;
       border-radius: 8px;
       background-color: white;
@@ -38,12 +38,13 @@
       border-bottom: 1px solid #ddd;
     }
     .card h2 {
-      padding: 10px;
-      font-size: 1.2em;
+      margin: 5px 0; /* Reduce white space around labels */
+      padding: 5px;
+      font-size: 1.1em;
     }
     .back-link {
       display: block;
-      margin-top: 40px;
+      margin-top: 20px;
       font-size: 18px;
       color: blue;
       text-decoration: none;
@@ -54,6 +55,9 @@
     @media (max-width: 768px) {
       .container {
         grid-template-columns: 1fr; /* Stack on smaller screens */
+      }
+      .card {
+        max-width: 100%; /* Allow full width on smaller devices */
       }
     }
   </style>
