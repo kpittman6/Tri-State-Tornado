@@ -20,26 +20,74 @@
       font-size: 24px;
       margin-top: 0;
     }
+    p {
+      max-width: 800px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+    .italic {
+      font-style: italic;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .underline {
+      text-decoration: underline;
+    }
     a {
-      display: block;
-      margin: 20px;
-      font-size: 20px;
       color: blue;
-      text-decoration: none;
+      text-decoration: underline;
+      font-size: 18px;
+      display: block;
+      margin-top: 10px;
     }
     a:hover {
-      text-decoration: underline;
+      text-decoration: none;
+    }
+    .content {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: left;
     }
   </style>
 </head>
 <body>
 
   <h1>Simulating the 1925 Tri-State Tornado Outbreak in a Warmer Climate</h1>
-  <h2>Kyle Pittman, Walker Ashley, Victor Gensini, Allison Michaelis, and Alex Haberlie</h2>
+  <h2>Kyle Pittman, Walker Ashley, Victor Gensini, Allison Michaelis, Alex Haberlie</h2>
   <h2>Northern Illinois University</h2>
+  <p class="italic">Acknowledgements: This work would not have been possible without Chesley McColl and Gil Compo (NERSC; 20CRv3 Data Access), 
+    the NIU Center for Research Computing and Data (Metis Supercomputer), and NCAR Advanced Research Computing Grant UNID0007 (Derecho Supercomputer)</p>
 
-  <!-- Updated link to the new consolidated page -->
-  <a href="simulation_results.html">Simulation Results</a>
+  <div class="content">
+    <p>
+      March 18, 1925, was one of the most notable severe weather episodes ever observed. 
+      This outbreak included the Tri-State Tornado, the longest tracked & deadliest tornado 
+      in U.S. history.
+    </p>
+
+    <a href="background.html">More Background Information</a>
+
+    <p class="bold">
+      Can we create a reasonable representation of this event in a convection-allowing ensemble?<br>
+      How might changes to the global climate system since 1925 influence a similar event if it occurred today?<br>
+      How might projected climate change impact a future severe weather outbreak with similar characteristics?
+    </p>
+
+    <p class="bold underline">Results</p>
+    <a href="simulation_results.html">Simulation Results</a>
+    
+    <p>
+      All 30 selected 20CRv3 members supported a tornado outbreak (multiple separate AFWA Tornado swaths > EF0 intensity) in the historical simulations, 
+      which overlapped the area of observed storms and hail from March 18, 1925.<br>
+      27 of the 30 historical simulations had continuous AFWA Tornado swaths (>EF 0 intensity) that were at least 100 km in length.<br>
+      8 of these had a continuous EF0+ AFWA Tornado swath > 250 km, similar in length to the likely continuous portion of the Tri-State Tornado (Johns et al. 2013).<br>
+      All ensemble members had cyclic tornado families exceeding 200 km.<br>
+      All 30 present day and end 21st century high emission simulations also supported a tornado outbreak across the same region.
+    </p>
+
+    
+  </div>
 
 </body>
 </html>
