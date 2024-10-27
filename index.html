@@ -83,6 +83,19 @@
     .bullet-list li {
       margin-bottom: 10px; /* Add space between bullet points */
     }
+        .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      gap: 10px; /* Space between images */
+      max-width: 700px; /* Match the requested width */
+      margin: 20px auto;
+    }
+    .grid-container img {
+      width: 100%; /* Ensure images scale with grid cells */
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
     @media (max-width: 700px) {
       .image-row {
         flex-direction: column; /* Stack images vertically on smaller screens */
@@ -141,6 +154,27 @@
       <li>All ensemble members had cyclic tornado families exceeding 200 km.</li>
       <li>All 30 present day and end 21st century high emission simulations also supported a tornado outbreak across the same region.</li>
     </ul>
+
+    
+    <!-- 2x4 Grid of PNG Images -->
+    <div class="grid-container">
+      <img src="./EF0TorCDF.png" alt="EF0 Tornado CDF">
+      <img src="./EF2TorCDF.png" alt="EF2 Tornado CDF">
+      <img src="./1inHailCDF.png" alt="1 Inch Hail CDF">
+      <img src="./2inHailCDF.png" alt="2 Inch Hail CDF">
+      <img src="./15WCDF.png" alt="15W CDF">
+      <img src="./25WCDF.png" alt="25W CDF">
+      <img src="./75UHCDF.png" alt="75 UH CDF">
+      <img src="./150UHCDF.png" alt="150 UH CDF">
+    </div>
+
+    <p class="italic">
+      Cumulative density frequency plots showing grid point exceedance for several relevant measures 
+      of severe weather within the models during the simulation period (18 UTC March 17 – 12 UTC March 19). 
+      Blue lines show the 30 historical simulations, green lines are the 30 Present Day Simulations, and 
+      Red lines are the 30 End 21’st Century SSP5-8.5 Simulations (the range of outcomes is shaded, and 
+      the maximum, median, and minimum ensemble members are indicated).
+    </p>
 
     <a href="methods.html">Data and Methods</a>
     <p>
