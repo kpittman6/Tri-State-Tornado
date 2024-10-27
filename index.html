@@ -39,8 +39,8 @@
       text-decoration: underline;
       font-size: 18px;
       display: block;
-      width: fit-content;
       margin: 15px auto;
+      width: fit-content;
     }
     a:hover {
       text-decoration: none;
@@ -50,6 +50,15 @@
       margin: 20px auto;
       text-align: center;
     }
+    img {
+      width: 100%; /* Ensure the image is responsive */
+      max-width: 800px; /* Limit the max width */
+      height: auto;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    
   </style>
 </head>
 <body>
@@ -57,16 +66,24 @@
   <h1>Simulating the 1925 Tri-State Tornado Outbreak in a Warmer Climate</h1>
   <h2>Kyle Pittman, Walker Ashley, Victor Gensini, Allison Michaelis, Alex Haberlie</h2>
   <h2>Northern Illinois University</h2>
-  <p class="italic">Acknowledgements: This work would not have been possible without Chesley McColl and Gil Compo (NERSC; 20CRv3 Data Access), 
+  
+  <div class="content">
+    <p class="italic">Acknowledgements: This work would not have been possible without Chesley McColl and Gil Compo (NERSC; 20CRv3 Data Access), 
     the NIU Center for Research Computing and Data (Metis Supercomputer), and NCAR Advanced Research Computing Grant UNID0007 (Derecho Supercomputer)</p>
 
-  <div class="content">
     <p>
       March 18, 1925, was one of the most notable severe weather episodes ever observed. 
       This outbreak included the Tri-State Tornado, the longest tracked & deadliest tornado 
       in U.S. history.
     </p>
-
+    
+    <!-- Image and Caption -->
+    <img src="./Fig-06.png" alt="Overview of the March 18, 1925 outbreak">
+    <p class="italic">
+      Overview of the March 18, 1925 outbreak. Area of observed storms (red outline), and recorded 
+      tornadoes, hail, and severe storms annotated (Figure 6 from Maddox et al. 2013).
+    </p>
+    
     <a href="background.html">More Background Information</a>
 
     <p class="bold">
