@@ -13,18 +13,16 @@
       padding: 10px;
     }
     h1 {
-      margin-bottom: 10px;
+      margin: 10px auto; /* Center title within the page */
       font-size: 36px;
-      grid-column: 2 / 3; /* Align title to the second column */
-      justify-self: center;
+      text-align: center;
     }
     .container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
-      gap: 2px; /* Reduce the space between cards */
-      margin: 0 auto;
-      max-width: 1400px;
-      align-items: start; /* Align items at the top */
+      grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+      gap: 5px; /* Adjust spacing between cards */
+      margin: 20px auto; /* Center the grid */
+      max-width: 1200px; /* Control the total width */
     }
     .card {
       width: 100%;
@@ -41,8 +39,8 @@
       border-bottom: 1px solid #ddd;
     }
     .card h2 {
-      margin: 2px 0; /* Minimal space above and below text */
-      padding: 2px 0; /* Minimal padding around text */
+      margin: 2px 0;
+      padding: 2px 0;
       font-size: 1.1em;
     }
     .back-link {
@@ -62,19 +60,14 @@
       .card {
         max-width: 100%; /* Allow full width on smaller screens */
       }
-      h1 {
-        grid-column: 1 / 2; /* Ensure title remains centered */
-      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>Simulation Results</h1> <!-- Title aligned with center column -->
+  <h1>Simulation Results</h1> <!-- Title centered on the entire grid -->
 
-    <div id="grid-container"></div>
-  </div>
+  <div class="container" id="grid-container"></div>
 
   <a href="index.html" class="back-link">Back to Main Directory</a>
 
