@@ -12,28 +12,35 @@
       margin: 0;
       padding: 0;
     }
+
     h1 {
       margin-top: 50px;
       font-size: 32px;
     }
+
     h2 {
       font-size: 20px;
       margin-top: 0;
     }
+
     p {
       margin: 10px auto;
       line-height: 1.6;
     }
+
     .italic {
       font-style: italic;
       font-size: 14px;
     }
+
     .bold {
       font-weight: bold;
     }
+
     .underline {
       text-decoration: underline;
     }
+
     a {
       color: blue;
       text-decoration: underline;
@@ -42,76 +49,71 @@
       margin: 15px auto;
       width: fit-content;
     }
+
     a:hover {
       text-decoration: none;
     }
+
     .content {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      max-width: 1000px; /* Wider content area */
+      max-width: 1000px;
       margin: 20px auto;
       text-align: center;
     }
-    img {
-      width: 100%; /* Ensure the image is responsive */
-      max-width: 350px; /* Limit the max width */
+
+    .bullet-list {
+      text-align: left;
+      margin-top: 20px;
+      margin-bottom: 10px; /* Close gap between bullet list and figures */
+    }
+
+    .bullet-list li {
+      margin-bottom: 10px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 2 columns */
+      gap: 0px; /* Remove gap between images */
+      width: 100%; /* Full width for centering */
+      max-width: 1000px; /* Match content width */
+      margin: 0 auto; /* Center grid */
+    }
+
+    .grid-container img {
+      width: 100%; /* Fill grid cells */
       height: auto;
-      margin-top: 10px;
       border-radius: 8px;
       border: 1px solid #ddd;
     }
+
+    @media (max-width: 700px) {
+      .grid-container {
+        grid-template-columns: 1fr; /* Stack on small screens */
+      }
+    }
+
     .image-row {
       display: flex;
       justify-content: center;
-      gap: 10px; /* Space between images */
+      gap: 10px;
       margin-top: 20px;
     }
+
     .image-row img {
-      width: 100%; /* Ensure each image takes full width within its flex item */
-      max-width: 300px; /* Limit the size of each image */
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-    }
-    .bullet-list {
-      text-align: left; /* Left align the list */
-      margin-top: 20px;
-    }
-    .bullet-list li {
-      margin-bottom: 10px; /* Add space between bullet points */
-    }
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 columns */
-      gap: 20px; /* Space between images */
       width: 100%;
-      max-width: 1000px; /* Match the requested width */
-      margin: 20px auto;
-    }
-    .grid-container img {
-      width: 100%; /* Ensure images scale with grid cells */
+      max-width: 300px;
       height: auto;
       border-radius: 8px;
       border: 1px solid #ddd;
     }
-    @media (max-width: 700px) {
-      .image-row {
-        flex-direction: column; /* Stack images vertically on smaller screens */
-      }
-      .grid-container {
-        grid-template-columns: 1fr; /* Stack images */
-      }
-      .content {
-        height: auto; /* Adjust height on smaller screens */
-      }
-    }
-    
   </style>
 </head>
 <body>
-
+  
   <h1>Simulating the 1925 Tri-State Tornado Outbreak in a Warmer Climate</h1>
   <h2>Kyle Pittman, Walker Ashley, Victor Gensini, Allison Michaelis, Alex Haberlie</h2>
   <h2>Northern Illinois University</h2>
