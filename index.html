@@ -70,7 +70,7 @@
     }
     .image-row img {
       width: 100%; /* Ensure each image takes full width within its flex item */
-      max-width: 400px; /* Limit the size of each image */
+      max-width: 300px; /* Limit the size of each image */
       height: auto;
       border-radius: 8px;
       border: 1px solid #ddd;
@@ -99,6 +99,9 @@
     @media (max-width: 700px) {
       .image-row {
         flex-direction: column; /* Stack images vertically on smaller screens */
+      }
+      .grid-container {
+        grid-template-columns: 1fr; /* Stack images */
       }
       .content {
         height: auto; /* Adjust height on smaller screens */
