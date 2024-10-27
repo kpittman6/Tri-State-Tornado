@@ -17,19 +17,19 @@
       font-size: 36px;
     }
     .container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 columns for epochs */
-      gap: 10px;
-      justify-items: center;
-      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .card {
-      width: 300px;
+      flex: 1 1 calc(33.33% - 20px); /* 3 columns */
+      margin: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
       background-color: white;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       cursor: pointer;
+      max-width: 300px;
     }
     .card img {
       width: 100%;
@@ -40,21 +40,6 @@
       padding: 10px;
       font-size: 1.2em;
     }
-    .back-link {
-      display: block;
-      margin-top: 40px;
-      font-size: 18px;
-      color: blue;
-      text-decoration: none;
-    }
-    .back-link:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr; /* Stack on smaller screens */
-      }
-    }
   </style>
 </head>
 <body>
@@ -62,8 +47,6 @@
   <h1>Simulation Results</h1>
 
   <div class="container" id="grid-container"></div>
-
-  <a href="index.html" class="back-link">Back to Main Directory</a>
 
   <script>
     const epochs = [
@@ -84,8 +67,11 @@
 
     members.forEach(member => {
       epochs.forEach(epoch => {
-        const imgPath = `/TorTracks/${epoch.name.replace('-', '')}/${epoch.imgPrefix}${member}.png`;
-        const memberPage = `/members/${member}_${epoch.name.toLowerCase().replace('-', '')}.html`;
+        const imgPath = `./TorTracks/${epoch.name.replace('-', '')}/${epoch.imgPrefix}${member}.png`;
+        const memberPage = `./members/${member}_${epoch.name.toLowerCase()}.html`;
+
+        console.log('Image Path:', imgPath);
+        console.log('Member Page:', memberPage);
 
         const card = document.createElement("div");
         card.classList.add("card");
@@ -95,7 +81,9 @@
           <h2>${member} - ${epoch.name}</h2>
         `;
 
-        card.onclick = () => window.location.href = memberPage;
+        card.addEventListener('click', function () {
+          window.location.href = memberPage;
+        });
 
         container.appendChild(card);
       });
