@@ -52,11 +52,32 @@
     }
     img {
       width: 100%; /* Ensure the image is responsive */
-      max-width: 400px; /* Limit the max width */
+      max-width: 250px; /* Limit the max width */
       height: auto;
       margin-top: 10px;
       border-radius: 8px;
       border: 1px solid #ddd;
+    }
+    .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Space between images */
+      margin-top: 20px 0;
+    }
+    .image-row img {
+      width: 100%; /* Ensure each image takes full width within its flex item */
+      max-width: 200px; /* Limit the size of each image */
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    @media (max-width: 600px) {
+      .image-row {
+        flex-direction: column; /* Stack images vertically on smaller screens */
+      }
+      .content {
+        height: auto; /* Adjust height on smaller screens */
+      }
     }
     
   </style>
@@ -93,6 +114,12 @@
     </p>
 
     <a href="simulation_results.html">All Simulation Results</a>
+
+    <div class="image-row">
+      <img src="./TorTracks/Historical/TorTrack_mem076.png" alt="Historical Tornado Track">
+      <img src="./TorTracks/Contemp/TorTrack_Contemp_mem076.png" alt="Present-Day Tornado Track">
+      <img src="./TorTracks/SSP585EC/TorTrack_SSP585EC_mem076.png" alt="Future Tornado Track">
+    </div>
     
     <p>
       All 30 selected 20CRv3 members supported a tornado outbreak (multiple separate AFWA Tornado swaths > EF0 intensity) in the historical simulations, 
