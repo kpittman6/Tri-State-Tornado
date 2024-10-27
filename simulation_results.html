@@ -19,12 +19,13 @@
     .container {
       display: grid;
       grid-template-columns: repeat(3, 1fr); /* 3 columns */
-      gap: 10px;
-      justify-items: center;
-      margin-top: 20px;
+      gap: 5px; /* Reduce the gap between images */
+      margin: 0 auto; /* Center the grid */
+      max-width: 1200px; /* Constrain the total width */
     }
     .card {
-      width: 300px;
+      width: 100%; /* Take full width within the grid cell */
+      max-width: 300px; /* Limit the maximum size */
       border: 1px solid #ccc;
       border-radius: 8px;
       background-color: white;
