@@ -66,7 +66,12 @@
   <a href="index.html" class="back-link">Back to Main Directory</a>
 
   <script>
-    const epochs = ["Historical", "Present-Day", "Future"];
+    const epochs = [
+      { name: "Historical", path: "TorTracks/Historical/TorTrack_" },
+      { name: "Present-Day", path: "TorTracks/Contemp/TorTrack_Contemp_" },
+      { name: "Future", path: "TorTracks/SSP585EC/TorTrack_SSP585EC_" }
+    ];
+
     const members = [
       "mem005", "mem006", "mem007", "mem016", "mem017", "mem019", "mem021",
       "mem025", "mem026", "mem030", "mem034", "mem037", "mem038", "mem042",
@@ -79,17 +84,17 @@
 
     members.forEach(member => {
       epochs.forEach(epoch => {
-        // Determine the appropriate image and link paths
-        const epochPath = epoch.toLowerCase().replace('-', '');
-        const imgPath = `/TorTracks/${epoch}/TorTrack_${member}.png`;
-        const memberPage = `/members/${member}_${epochPath}.html`;
+        // Construct the correct paths for the images and member HTML pages
+        const imgPath = `/${epoch.path}${member}.png`;
+        const memberPage = `/members/${member}_${epoch.name.replace("-", "").toLowerCase()}.html`;
 
         // Create the card element
         const card = document.createElement("div");
         card.classList.add("card");
+
         card.innerHTML = `
-          <img src="${imgPath}" alt="${epoch} ${member} Tornado Tracks">
-          <h2>${member} - ${epoch}</h2>
+          <img src="${imgPath}" alt="${epoch.name} ${member} Tornado Tracks">
+          <h2>${member} - ${epoch.name}</h2>
         `;
         card.onclick = () => window.location.href = memberPage;
 
