@@ -37,7 +37,7 @@
     a {
       color: blue;
       text-decoration: underline;
-      font-size: 18px;
+      font-size: 24px;
       display: block;
       margin: 15px auto;
       width: fit-content;
@@ -83,11 +83,12 @@
     .bullet-list li {
       margin-bottom: 10px; /* Add space between bullet points */
     }
-        .grid-container {
+    .grid-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr); /* 2 columns */
       gap: 10px; /* Space between images */
-      max-width: 800px; /* Match the requested width */
+      width: 100%;
+      max-width: 1000px; /* Match the requested width */
       margin: 20px auto;
     }
     .grid-container img {
@@ -184,7 +185,8 @@
 
     <a href="methods.html">Data and Methods</a>
     <p>
-      These simulations were run using a high-resolution WRF ensemble, using 20th Century Reanalysis Data (version 3), and the Pseudo-Global Warming technique. 
+      Historical simulations were run using a high-resolution WRF ensemble, using 20th Century Reanalysis data (version 3).<br> 
+      Future simulations were generated using CESM2 data (CMIP6), and the Pseudo-Global Warming technique. 
     </p>
   </div>
 
