@@ -46,13 +46,18 @@
       text-decoration: none;
     }
     .content {
-      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      max-width: 1000px; /* Wider content area */
+      height: 100vh;
       margin: 20px auto;
       text-align: center;
     }
     img {
       width: 100%; /* Ensure the image is responsive */
-      max-width: 250px; /* Limit the max width */
+      max-width: 350px; /* Limit the max width */
       height: auto;
       margin-top: 10px;
       border-radius: 8px;
@@ -66,12 +71,19 @@
     }
     .image-row img {
       width: 100%; /* Ensure each image takes full width within its flex item */
-      max-width: 200px; /* Limit the size of each image */
+      max-width: 300px; /* Limit the size of each image */
       height: auto;
       border-radius: 8px;
       border: 1px solid #ddd;
     }
-    @media (max-width: 600px) {
+    .bullet-list {
+      text-align: left; /* Left align the list */
+      margin-top: 20px;
+    }
+    .bullet-list li {
+      margin-bottom: 10px; /* Add space between bullet points */
+    }
+    @media (max-width: 700px) {
       .image-row {
         flex-direction: column; /* Stack images vertically on smaller screens */
       }
@@ -120,15 +132,15 @@
       <img src="./TorTracks/Contemp/TorTrack_Contemp_mem076.png" alt="Present-Day Tornado Track">
       <img src="./TorTracks/SSP585EC/TorTrack_SSP585EC_mem076.png" alt="Future Tornado Track">
     </div>
-    
-    <p>
-      All 30 selected 20CRv3 members supported a tornado outbreak (multiple separate AFWA Tornado swaths > EF0 intensity) in the historical simulations, 
-      which overlapped the area of observed storms and hail from March 18, 1925.<br>
-      27 of the 30 historical simulations had continuous AFWA Tornado swaths (>EF 0 intensity) that were at least 100 km in length.<br>
-      8 of these had a continuous EF0+ AFWA Tornado swath > 250 km, similar in length to the likely continuous portion of the Tri-State Tornado (Johns et al. 2013).<br>
-      All ensemble members had cyclic tornado families exceeding 200 km.<br>
-      All 30 present day and end 21st century high emission simulations also supported a tornado outbreak across the same region.
-    </p>
+
+    <ul class="bullet-list">
+      <li>All 30 selected 20CRv3 members supported a tornado outbreak (multiple separate AFWA Tornado swaths > EF0 intensity) in the historical simulations, 
+      which overlapped the area of observed storms and hail from March 18, 1925.</li>
+      <li>27 of the 30 historical simulations had continuous AFWA Tornado swaths (>EF 0 intensity) that were at least 100 km in length.</li>
+      <li>8 of these had a continuous EF0+ AFWA Tornado swath > 250 km, similar in length to the likely continuous portion of the Tri-State Tornado (Johns et al. 2013).</li>
+      <li>All ensemble members had cyclic tornado families exceeding 200 km.</li>
+      <li>All 30 present day and end 21st century high emission simulations also supported a tornado outbreak across the same region.</li>
+    </ul>
 
     <a href="methods.html">Data and Methods</a>
     <p>
