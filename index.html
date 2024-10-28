@@ -64,6 +64,15 @@
       text-align: center;
     }
 
+    img {
+      width: 100%; /* Responsive */
+      max-width: 800px; /* Limit Fig-06 image size */
+      height: auto;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
     .bullet-list {
       text-align: left;
       margin-top: 20px;
@@ -89,13 +98,6 @@
       border-radius: 8px;
       border: 1px solid #ddd;
     }
-
-    @media (max-width: 700px) {
-      .grid-container {
-        grid-template-columns: 1fr; /* Stack on small screens */
-      }
-    }
-
     .image-row {
       display: flex;
       justify-content: center;
@@ -109,6 +111,12 @@
       height: auto;
       border-radius: 8px;
       border: 1px solid #ddd;
+    }
+
+    @media (max-width: 700px) {
+      .grid-container {
+        grid-template-columns: 1fr; /* Stack on small screens */
+      }
     }
   </style>
 </head>
