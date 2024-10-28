@@ -64,11 +64,12 @@
       text-align: center;
     }
 
-    img {
-      width: 100%; /* Responsive */
-      max-width: 400px; /* Limit Fig-06 image size */
+/* Fig-06 Specific Styling */
+    .fig-06 {
+      width: 100%; /* Ensure it’s responsive */
+      max-width: 900px; /* Control size independently */
       height: auto;
-      margin-top: 10px;
+      margin: 10px auto; /* Center the image */
       border-radius: 8px;
       border: 1px solid #ddd;
     }
@@ -76,20 +77,21 @@
     .bullet-list {
       text-align: left;
       margin-top: 20px;
-      margin-bottom: 10px; /* Close gap between bullet list and figures */
+      margin-bottom: 10px;
     }
 
     .bullet-list li {
       margin-bottom: 10px;
     }
 
+    /* 2x4 Grid Container */
     .grid-container {
       display: grid;
       grid-template-columns: 1fr 1fr; /* 2 columns */
-      gap: 0px; /* Remove gap between images */
-      width: 100%; /* Full width for centering */
-      max-width: 1000px; /* Match content width */
-      margin: 0 auto; /* Center grid */
+      gap: 10px; /* Add space between images */
+      width: 100%;
+      max-width: 1000px; /* Align with content */
+      margin: 20px auto;
     }
 
     .grid-container img {
@@ -98,6 +100,7 @@
       border-radius: 8px;
       border: 1px solid #ddd;
     }
+
     .image-row {
       display: flex;
       justify-content: center;
@@ -120,7 +123,7 @@
     }
   </style>
 </head>
-<body>
+<body> 
   
   <h1>Simulating the 1925 Tri-State Tornado Outbreak in a Warmer Climate</h1>
   <h2>Kyle Pittman, Walker Ashley, Victor Gensini, Allison Michaelis, Alex Haberlie</h2>
@@ -137,7 +140,7 @@
     </p>
     
     <!-- Image and Caption -->
-    <img src="./Fig-06.png" alt="Overview of the March 18, 1925 outbreak">
+    <img class="fig-06" src="./Fig-06.png" alt="Overview of the March 18, 1925 outbreak">
     <p class="italic">
       Overview of the March 18, 1925 outbreak. The area of observed storms and hail are notated in the red outline, and known 
       tornadoes, hail, and severe storms annotated (Figure 6 from Maddox et al. 2013).
